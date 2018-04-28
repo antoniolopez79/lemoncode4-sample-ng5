@@ -1,0 +1,27 @@
+<div>
+  <span class="l">Name:</span>
+  <!-- <span class="c">{{ name }}</span> -->
+  <input type="text" [(ngModel)]="name" />
+  <br/>
+
+  <div *ngIf="name">  
+    ¡Hola {{name}}!
+  </div>
+  <div *ngIf="!name">
+      El nombre es obligatorio, para que pueda saludarte
+  </div>
+  
+
+  <span class="l">Lastaname:</span><span class="c">{{ lastname }}</span>
+  <br/>
+  <span class="l">Role:</span><span class="c"> ( {{ role }} )</span>
+  <br/>
+  <button (click)="onClick()">Logout</button>
+</div>
+
+<div>
+  <h3>Users</h3>
+  <div *ngFor="let u of users" (click)="onSelect(u)">
+      {{u.name}} - ({{u.age}})
+  </div>
+</div>
