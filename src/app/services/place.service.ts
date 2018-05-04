@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+
 import { Place } from '../domain/place';
 import { buildBasicAuth } from './auth-utils';
 
@@ -21,6 +22,8 @@ export class PlaceService {
     };
 
     return this.http.get(url, { headers: headers})
-               .map(d => <Place[]> d);
+               .map(d => {
+                 return <Place[]> d;
+               });
   }
 }

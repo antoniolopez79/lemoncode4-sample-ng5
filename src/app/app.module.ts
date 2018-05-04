@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceService } from './services/place.service';
+import { SponsorService } from './services/sponsor.service';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { PlaceService } from './services/place.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ PlaceService ],
+  providers: [ PlaceService, SponsorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

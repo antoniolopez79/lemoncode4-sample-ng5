@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
-import { Place } from './domain/place';
 import { PlaceService } from './services/place.service';
+import { SponsorService } from './services/sponsor.service';
+
+import { Sponsor } from './domain/sponsor';
+import { Place } from './domain/place';
 
 class User {
   name: string;
@@ -26,8 +29,12 @@ export class AppComponent implements OnInit {
   user: User;
 
   places: Place[] = [];
+  sponsors: Sponsor[] = [];
+  error: string;
 
-  constructor(private placeService: PlaceService) {
+  constructor(private placeService: PlaceService,
+              private sponsorService: SponsorService
+            ) {
     if (environment.production) {
       console.log('production');
     }
@@ -38,7 +45,20 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.loadPlaces();
+    this.loadSponsors();
   }
+
+  loadSponsors() {
+    this.sponsorService.getSponsors().subscribe(
+      data => { this.onSponsors(data); },
+      error => { this.handleError(error); }
+    );
+  }
+
+  onSponsors(data: Sponsor[]): void {
+    this.sponsors = data;
+  }
+
 
   loadPlaces() {
     this.placeService.getPlaces().subscribe(
@@ -51,6 +71,7 @@ export class AppComponent implements OnInit {
   }
   handleError(error: any): void {
     console.error(error);
+    this.error = error.message;
   }
 
   onLogout(event: any) {

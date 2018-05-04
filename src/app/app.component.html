@@ -24,4 +24,20 @@
                   >
 </app-user-profile>
 
+<h3>Places</h3>
+<div *ngFor="let place of places">
+  <div>
+    <span>{{ place.name }}</span>
+    <span>{{ place.address }}</span>
+  </div>
+</div>
 
+<h3>Sponsors</h3>
+<div *ngFor="let s of sponsors">
+  <span>{{ s.name }}</span>
+  <span>{{ s.level }}</span>
+</div>
+
+<div *ngIf="error" class="error-zone">
+  {{ error }}
+</div>
