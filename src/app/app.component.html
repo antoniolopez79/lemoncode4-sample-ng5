@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+  <h1 appMyHighlight>
     Welcome to {{ title }}!
   </h1>
 </div>
@@ -23,5 +23,14 @@
                   (logout)="onLogout($event)"
                   >
 </app-user-profile>
+
+
+<p appMyHighlight>
+  Valor {{  123.346 | currency:'eur' }}  <br/>
+  Valor {{  123.346 | currency:'usd' }}  <br/>
+  Valor {{  123.346 | currency }}  <br/>
+  Valor {{  -456788.345 | currency:'eur' }}  <br/>
+  Valor {{  total | currency:'eur' }}  <br/>
+</p>
 
 

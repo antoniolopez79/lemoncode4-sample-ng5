@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoggerService } from './services/logger.service';
 import { Logger2Service } from './services/logger2.service';
+import { CurrencyPipe } from './pipes/currency.pipe';
+import { MyHighlightDirective } from './directives/my-highlight.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CurrencyPipe,
+    MyHighlightDirective
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,8 @@ export class UserProfileComponent implements OnInit, OnDestroy, OnChanges {
 
   users: User[];
 
+  total = 2344.4445;
+
   constructor() { }
 
   ngOnInit() {
