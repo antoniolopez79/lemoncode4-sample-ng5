@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../environments/environment';
+import { Place } from './domain/place';
+import { PlaceService } from './services/place.service';
 
 class User {
   name: string;
@@ -18,19 +20,37 @@ class User {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
   user: User;
 
-  constructor() {
+  places: Place[] = [];
+
+  constructor(private placeService: PlaceService) {
     if (environment.production) {
       console.log('production');
     }
     console.log('hola');
 
     this.user = new User('Ana', 'Lopez', 'user');
+  }
 
+  ngOnInit() {
+    this.loadPlaces();
+  }
+
+  loadPlaces() {
+    this.placeService.getPlaces().subscribe(
+      data => this.onPlaces(data),
+      error => this.handleError(error)
+    );
+  }
+  onPlaces(places: Place[]): void {
+    this.places = places;
+  }
+  handleError(error: any): void {
+    console.error(error);
   }
 
   onLogout(event: any) {
