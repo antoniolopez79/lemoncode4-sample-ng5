@@ -5,6 +5,7 @@ import { SponsorService } from './services/sponsor.service';
 
 import { Sponsor } from './domain/sponsor';
 import { Place } from './domain/place';
+import { LoggerService } from './services/logger.service';
 
 class User {
   name: string;
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
   error: string;
 
   constructor(private placeService: PlaceService,
-              private sponsorService: SponsorService
+              private sponsorService: SponsorService,
+              private logger: LoggerService
             ) {
     if (environment.production) {
       this.logger.log('production');
