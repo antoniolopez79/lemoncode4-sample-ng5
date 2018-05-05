@@ -6,6 +6,8 @@ export interface Place {
     city: string;
     zipCode: number;
     image: string;
+
+    selection?: boolean;
 }
 
 export interface Location {

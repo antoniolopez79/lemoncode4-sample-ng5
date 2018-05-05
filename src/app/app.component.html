@@ -34,8 +34,11 @@
 </p>
 
 <h3>Places</h3>
-<div *ngFor="let place of places">
-  <div>
+<div *ngFor="let place of places" >
+  <div [@activedPlace]="getAnimationState(place)" 
+       (click)="toggleSelection(place)"
+       class="place"
+  >
     <span><a [routerLink]="['place/' + place._id ]">{{ place.name }}</a></span>
     <span>{{ place.address }}</span>
   </div>

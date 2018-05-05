@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+
 import { environment } from '../environments/environment';
 import { PlaceService } from './services/place.service';
 import { SponsorService } from './services/sponsor.service';
@@ -24,6 +27,18 @@ class User {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   // providers: [ LoggerService ]
+  animations: [
+    trigger('activedPlace', [
+      state('noselect', style({
+        backgroundColor: '#eeeeee', transform: 'scale(1)', left: '0px'
+      })),
+      state('select',   style({
+        backgroundColor: '#cfd8dc', transform: 'scale(1.1)', left: '500px'
+      })),
+      transition('noselect => select', animate('500ms ease-in')),
+      transition('select => noselect', animate('500ms ease-out'))
+    ])
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'app';
@@ -51,6 +66,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.loadPlaces();
     this.loadSponsors();
+  }
+
+  toggleSelection(place: Place) {
+    place.selection = !place.selection;
+  }
+
+  getAnimationState(place: Place) {
+    if (place.selection) {
+      return 'select';
+    }
+    return 'noselect';
   }
 
   loadSponsors() {
