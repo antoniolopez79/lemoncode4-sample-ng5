@@ -4,7 +4,7 @@ export interface Place {
     location: Location;
     address: string;
     city: string;
-    zipCode: number;
+    zipCode?: number;
     image: string;
 
     selection?: boolean;

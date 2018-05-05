@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
-  serverUrl: 'http://prod.acme.com'
+  serverUrl: 'https://openapi3.herokuapp.com',
+  user: 'demo',
+  password: 'demo'
 
 };

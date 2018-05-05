@@ -4,8 +4,10 @@
   <input type="text" [(ngModel)]="name" />
   <br/>
 
-  <div *ngIf="name">  
+  <div *ngIf="name" id="n1"  class="n">
+    <p>  
     ¡Hola {{name}}!
+    </p>
   </div>
   <div *ngIf="!name">
       El nombre es obligatorio, para que pueda saludarte
