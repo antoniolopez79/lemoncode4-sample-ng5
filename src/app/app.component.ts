@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   pi = 3.14;
+  total = 2.18;
 
   user: User;
 
