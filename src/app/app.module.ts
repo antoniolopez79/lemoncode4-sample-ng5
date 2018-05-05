@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -11,6 +12,10 @@ import { LoggerService } from './services/logger.service';
 import { Logger2Service } from './services/logger2.service';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { MyHighlightDirective } from './directives/my-highlight.directive';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { PlaceDetailComponent } from './place-detail/place-detail.component';
+import { routing } from './app.routing';
 
 
 @NgModule({
@@ -18,14 +23,19 @@ import { MyHighlightDirective } from './directives/my-highlight.directive';
     AppComponent,
     UserProfileComponent,
     CurrencyPipe,
-    MyHighlightDirective
+    MyHighlightDirective,
+    HomeComponent,
+    AboutComponent,
+    PlaceDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    routing
   ],
-  providers: [ 
+  providers: [
     PlaceService,
     SponsorService,
     // LoggerService

@@ -1,0 +1,9 @@
+<span>{{id}}</span>
+
+<div *ngIf="place">
+  
+  <h3>Place</h3>
+  <span>{{ place.name }}</span>
+  <span>{{ place.address }}</span>
+  <img [src]="place.image"/>
+</div>

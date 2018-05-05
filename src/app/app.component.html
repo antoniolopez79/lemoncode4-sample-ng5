@@ -36,7 +36,7 @@
 <h3>Places</h3>
 <div *ngFor="let place of places">
   <div>
-    <span>{{ place.name }}</span>
+    <span><a [routerLink]="['place/' + place._id ]">{{ place.name }}</a></span>
     <span>{{ place.address }}</span>
   </div>
 </div>
@@ -50,3 +50,17 @@
 <div *ngIf="error" class="error-zone">
   {{ error }}
 </div>
+
+<ul>
+  <li>
+    <a [routerLink]="['home']">Inicio</a>
+  </li>
+  <li>
+    <a [routerLink]="['about']">Acerca de...</a>    
+  </li>
+</ul>
+
+<hr/>
+<router-outlet></router-outlet>
+<hr/>
+Lemoncode 2018.
